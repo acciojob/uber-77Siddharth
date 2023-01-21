@@ -17,13 +17,23 @@ public class Cab{
     @OneToOne(mappedBy = "cab",cascade = CascadeType.ALL)
     private Driver driver;
 
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Cab() {
+    }
+    public Cab(int perKmRate, boolean available) {
+        this.perKmRate = perKmRate;
+        this.available = available;
+    }
+
     public Driver getDriver() {
         return driver;
     }
 
-    public Cab(int perKmRate, boolean available) {
-        this.perKmRate = perKmRate;
-        this.available = available;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -46,6 +56,4 @@ public class Cab{
         this.available = available;
     }
 
-    public Cab() {
-    }
 }

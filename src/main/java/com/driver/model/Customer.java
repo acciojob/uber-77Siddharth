@@ -42,6 +42,10 @@ public class Customer{
         this.mobile = mobile;
     }
 
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
     public String getPassword() {
         return password;
     }

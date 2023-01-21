@@ -19,9 +19,6 @@ public class Driver{
     @JoinColumn
     private Cab cab;
 
-    public Cab getCab() {
-        return cab;
-    }
 
     @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL)
     private List<TripBooking> tripBookingList;
@@ -29,13 +26,25 @@ public class Driver{
     public Driver() {
     }
 
-    public int getDriverId() {
-        return driverId;
-    }
-
     public Driver(String mobile, String password) {
         this.mobile = mobile;
         this.password = password;
+    }
+
+    public Cab getCab() {
+        return cab;
+    }
+
+    public void setCab(Cab cab) {
+        this.cab = cab;
+    }
+
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
+    }
+
+    public int getDriverId() {
+        return driverId;
     }
 
     public String getMobile() {
