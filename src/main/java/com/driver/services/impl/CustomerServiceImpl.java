@@ -46,7 +46,7 @@ public class CustomerServiceImpl implements CustomerService {
 		listOfAllDrivers.sort((a,b)->a.getDriverId()- b.getDriverId());
 		Driver foundFreeDriver = null;
 		for (Driver driver:listOfAllDrivers){
-			if (driver.getCab().isAvailable()==true) {
+			if (driver.getCab().getAvailable()==true) {
 				foundFreeDriver = driver;
 				  TripBooking booked = new TripBooking(fromLocation,toLocation,distanceInKm);
 				  foundFreeDriver.getCab().setAvailable(false);

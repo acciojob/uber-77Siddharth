@@ -31,9 +31,17 @@ public class Customer{
     public Customer() {
     }
 
+    public int getCustomer(){
+        return getCustomerId();
+    }
+    public void setCustomer(int customerId){
+        setCustomerId(customerId);
+    }
+
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
     }
+
 
     public List<TripBooking> getTripBookingList() {
         return tripBookingList;

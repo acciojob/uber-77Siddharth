@@ -80,6 +80,9 @@ public class TripBooking{
         this.bill = bill;
     }
 
+    public Customer getCustomer() {
+        return getCustomerId();
+    }
     public Customer getCustomerId() {
         return customerId;
     }
@@ -88,6 +91,9 @@ public class TripBooking{
         this.customerId = customerId;
     }
 
+    public Driver getDriver() {
+        return getDriverId();
+    }
     public Driver getDriverId() {
         return driverId;
     }

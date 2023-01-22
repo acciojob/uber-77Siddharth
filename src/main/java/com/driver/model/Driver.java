@@ -39,7 +39,11 @@ public class Driver{
         this.cab = cab;
     }
 
-    public void setDriverId(int driverId) {
+    public void setDriver(int driverId) {
+        setDriverId(driverId);
+    }
+
+        public void setDriverId(int driverId) {
         this.driverId = driverId;
     }
 
