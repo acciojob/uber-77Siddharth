@@ -1,5 +1,8 @@
 package com.driver.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class Driver{
 
 
     @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
 //    @JoinColumn
     private List<TripBooking> tripBookingList;
 

@@ -1,5 +1,6 @@
 package com.driver.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.context.annotation.ComponentScan;
 
 import javax.persistence.*;
@@ -116,6 +117,7 @@ public class TripBooking{
     }
 
     public void setStatus(TripStatus status) {
+
         this.status = status;
     }
 }
