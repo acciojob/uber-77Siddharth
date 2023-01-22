@@ -19,7 +19,8 @@ public class Customer{
 
     private String password;
 
-    @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn
     private List<TripBooking> tripBookingList;
 
     public Customer(String mobile, String password) {
@@ -28,6 +29,14 @@ public class Customer{
     }
 
     public Customer() {
+    }
+
+    public void setTripBookingList(List<TripBooking> tripBookingList) {
+        this.tripBookingList = tripBookingList;
+    }
+
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
     }
 
     public int getCustomerId() {

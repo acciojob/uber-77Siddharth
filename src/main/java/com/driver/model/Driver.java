@@ -15,12 +15,12 @@ public class Driver{
 
     private String password;
 
-    @OneToOne
-    @JoinColumn
+    @OneToOne(mappedBy = "driver",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Cab cab;
 
 
-    @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn
     private List<TripBooking> tripBookingList;
 
     public Driver() {
@@ -61,5 +61,13 @@ public class Driver{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
+    }
+
+    public void setTripBookingList(List<TripBooking> tripBookingList) {
+        this.tripBookingList = tripBookingList;
     }
 }

@@ -39,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
 		// Delete customer without using deleteById function
 		customerRepository2.deleteById(customerId);
 	}
-
+//Check booking function . giving 2 entries in DB.
 	@Override
 	public TripBooking bookTrip(int customerId, String fromLocation, String toLocation, int distanceInKm) throws Exception{
 		List<Driver> listOfAllDrivers = driverRepository2.findAll();
@@ -50,7 +50,17 @@ public class CustomerServiceImpl implements CustomerService {
 				foundFreeDriver = driver;
 				  TripBooking booked = new TripBooking(fromLocation,toLocation,distanceInKm);
 				  foundFreeDriver.getCab().setAvailable(false);
+				  booked.setBill(foundFreeDriver.getCab().getPerKmRate() * distanceInKm);
 
+				  Customer foundCustomer = customerRepository2.findById(customerId).get();
+				  booked.setCustomerId(foundCustomer);
+				  booked.setDriverId(driver);
+				  foundCustomer.getTripBookingList().add(booked);
+				  foundFreeDriver.getTripBookingList().add(booked);
+				  customerRepository2.save(foundCustomer);
+				  driverRepository2.save(foundFreeDriver);
+//				  tripBookingRepository2.save(booked);
+				  return booked;
 			}
 		}
 		throw new Exception("No cab available!");
@@ -63,13 +73,16 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
-
-		tripBookingRepository2.findById(tripId).get().setStatus(TripStatus.CANCELED);
+		TripBooking foundTrip = tripBookingRepository2.findById(tripId).get();
+		foundTrip.setStatus(TripStatus.CANCELED);
+		tripBookingRepository2.save(foundTrip);
 	}
 
 	@Override
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
-		tripBookingRepository2.findById(tripId).get().setStatus(TripStatus.COMPLETED);
+		TripBooking foundTrip = tripBookingRepository2.findById(tripId).get();
+		foundTrip.setStatus(TripStatus.COMPLETED);
+		tripBookingRepository2.save(foundTrip);
 	}
 }

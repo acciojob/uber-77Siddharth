@@ -1,10 +1,12 @@
 package com.driver.model;
 
+import org.springframework.context.annotation.ComponentScan;
+
 import javax.persistence.*;
 
 //A TripBooking entity that stores information about the trip such as the from and to locations,
 // the distance, the status of the trip, and the bill.
-
+@ComponentScan
 @Entity
 public class TripBooking{
     @Id
