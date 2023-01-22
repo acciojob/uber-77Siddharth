@@ -83,8 +83,13 @@ public class TripBooking{
     public Customer getCustomer() {
         return getCustomerId();
     }
+
     public Customer getCustomerId() {
         return customerId;
+    }
+    public void setCustomer(Customer customerId) {
+         setCustomerId(customerId);
+         return;
     }
 
     public void setCustomerId(Customer customerId) {
@@ -96,6 +101,10 @@ public class TripBooking{
     }
     public Driver getDriverId() {
         return driverId;
+    }
+
+    public void setDriver(Driver driverId) {
+        setDriverId(driverId);
     }
 
     public void setDriverId(Driver driverId) {
