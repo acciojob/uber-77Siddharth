@@ -21,13 +21,17 @@ public class TripBooking{
     private int distanceInKm;
     private int bill;
 
-    @ManyToOne
-    @JoinColumn
+    @ManyToOne(targetEntity = Customer.class)
     private Customer customerId;
+//    @ManyToOne
+//    @JoinColumn
+//    private Customer customerId;
 
-    @ManyToOne
-    @JoinColumn
+    @ManyToOne(targetEntity = Driver.class)
     private Driver driverId;
+//    @ManyToOne
+//    @JoinColumn
+//    private Driver driverId;
 
     @Enumerated(EnumType.STRING)
     TripStatus status;

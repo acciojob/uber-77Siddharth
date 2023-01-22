@@ -28,4 +28,9 @@ public class DriverController {
 	public void updateStatus(@RequestParam Integer driverId){
 		driverService.updateStatus(driverId);
 	}
+
+	@GetMapping("/getList")
+	public void getList(@RequestParam Integer driverId){
+		driverService.getList(driverId);
+	}
 }

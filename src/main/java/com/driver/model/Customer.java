@@ -21,9 +21,10 @@ public class Customer{
 
     private String password;
 
-    @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 
-//    @JoinColumn
+    @OneToMany
+//    @JoinColumn(name = "Customer_ID")
     private List<TripBooking> tripBookingList;
 
     public Customer(String mobile, String password) {

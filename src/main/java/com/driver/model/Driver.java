@@ -22,9 +22,9 @@ public class Driver{
     private Cab cab;
 
 
-    @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-
-//    @JoinColumn
+//    @OneToMany(mappedBy = "driverId",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany()
+//    @JoinColumn(name = "Driver_ID")
     private List<TripBooking> tripBookingList;
 
     public Driver() {

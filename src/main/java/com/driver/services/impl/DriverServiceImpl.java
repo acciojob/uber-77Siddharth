@@ -1,6 +1,7 @@
 package com.driver.services.impl;
 
 import com.driver.model.Cab;
+import com.driver.model.TripBooking;
 import com.driver.repository.CabRepository;
 import com.driver.services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,16 @@ public class DriverServiceImpl implements DriverService {
 		foundCab.setAvailable(false);
 		cabRepository3.save(foundCab);
 	}
+
+	@Override
+	public void getList(Integer driverId) {
+
+		Driver driver = driverRepository3.findById(driverId).get();
+		for (TripBooking tripBooking: driver.getTripBookingList()){
+			System.out.println(	tripBooking.getTripBookingId()	);
+		}
+
+
+	}
+
 }
